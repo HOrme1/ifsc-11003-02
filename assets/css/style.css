@@ -3,7 +3,20 @@ body {
     padding: 0;
     height: 100vh;
     background-image: url('../img/Sunrise over Mountains.png');
-    background-size: cover;        /* fills the screen */
-    background-position: center;   /* centers the image */
-    background-repeat: no-repeat;  /* prevents tiling */
+    background-size: cover;        
+    background-position: center;   
+    background-repeat: no-repeat;
+    
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff7b00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
