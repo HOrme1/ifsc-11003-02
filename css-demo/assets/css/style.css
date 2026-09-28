@@ -20,3 +20,6 @@ html {
   white-space: nowrap;
   width: 1px;
 }
+body {
+  background-color: rgb(255, 123, 0);
+}
