@@ -79,3 +79,11 @@ nav ul li a:hover{
   text-decoration-color: navy;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
+
+
+/* Media Queries*/
+@media screen and not (min-height: 256px) {
+  nav ul {
+    flex-direction: row;
+  }
+}
