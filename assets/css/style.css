@@ -43,3 +43,32 @@ html {
   white-space: nowrap;
   width: 1px;
 }
+
+nav {
+  border:#ff7b00 14px outset;
+  background-color: #ff7b00;
+}
+
+body h1 {
+  border: navy  14px inset;
+  background-color: navy;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav ul li a {
+  display: block;
+  color: navy;
+  text-decoration: none;
+  margin: 4px;
+  border: rgba(255, 255, 255, 0.1) 3px solid;
+  border-radius: 8px;
+  background:rgba(255, 255, 255, 0.1)
+}
