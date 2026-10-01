@@ -63,7 +63,7 @@ nav ul {
   justify-content: center;
 }
 
-nav ul li a {
+/*nav ul li a {
   display: block;
   color: navy;
   text-decoration: none;
@@ -71,9 +71,26 @@ nav ul li a {
   border: rgba(255, 255, 255, 0.1) 3px solid;
   border-radius: 8px;
   background:rgba(255, 255, 255, 0.1)
-  }
+  }*/
 
-nav ul li a:hover{
+/*nav ul li a:hover{
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: underline;
+  text-decoration-color: navy;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}*/
+
+.button {
+  display: block;
+  color: navy;
+  text-decoration: none;
+  margin: 4px;
+  border: rgba(255, 255, 255, 0.1) 3px solid;
+  border-radius: 8px;
+  background:rgba(255, 255, 255, 0.1)
+}
+
+.button:hover{
   background: rgba(255, 255, 255, 0.3);
   text-decoration: underline;
   text-decoration-color: navy;
