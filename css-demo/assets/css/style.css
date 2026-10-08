@@ -39,6 +39,19 @@ body {
   margin: 0;
 }
 
+.img-right {
+  float: right;
+}
+
+.img-left {
+  float: left;
+}
+
+.img-center {
+  display: block;
+  margin: 20px auto;
+}
+
 header.primary {
   background-color: #3b6b8b;
   color: #ffffff;
@@ -113,6 +126,9 @@ nav.primary ul li a:hover{
   justify-content:space-between;
   flex-wrap:wrap;
   gap:20px;
+  padding:10px;
+  border-bottom: 1px solid #3b6b8b;
+  border-top: 1px solid #3b6b8b;
 }
 
 #blog h2{
@@ -142,7 +158,49 @@ flex:1;
   font-size:.6rem;
 }
 
+aside[aria-label="Sidebar"]{
+  display:flex;
+  flex-direction:row;
+  background-color: #3b6b8b;
+  margin: 0 auto;
+  padding: 10px;
+}
 
+aside[aria-label="Sidebar"] div.container{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  gap:20px;
+}
+
+footer.primary{
+  margin: 0 auto;
+  background-color: #22465e;
+  text-align: center;
+  padding:5px;
+  text-shadow: 1px 1px #000000;
+  color: #3b788b;
+}
+
+aside div.container a{
+  color: #ffffff;
+  
+}
+
+aside .widget footer{
+  /*display: none;*/
+}
+
+aside div.container a:last-child{
+  display:block;
+  margin: top 10px;
+  text-align:right;
+}
+
+#practice h3{
+  border-left: 10px solid #3b6b8b;
+  padding: 5px 0 5px 10px;
+}
 
 
 
@@ -162,5 +220,16 @@ nav.primary ul {
 #blog{
   flex-direction:column;
   gap:10px;
+  
+}
+aside[aria-label="Sidebar"]{
+  flex-direction:column;
+  gap:10px;
+}
+
+aside[aria-label="Sidebar"] div.container{
+  flex-direction:column;
+  gap:10px;
+}
   
 }
