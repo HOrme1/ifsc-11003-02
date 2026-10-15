@@ -202,6 +202,85 @@ aside div.container a:last-child{
   padding: 5px 0 5px 10px;
 }
 
+#practice table{
+border:3px solid #3b6b8b;
+width:100%;
+border-collapse:collapse;
+}
+
+#practice caption{
+  background-color:#66a1c8;
+}
+
+#practice th{
+  background-color:#3b6b8b;
+  color:#ffffff;
+  padding: 7.5px;
+}
+
+#practice tr{
+  
+}
+
+#practice td{
+  border:2px dashed #3b6b8b;
+  padding:5px;
+}
+
+#practice tr:nth-child(even) td{
+  background-color:rgba(0,0,0,.1);
+}
+
+#practice tr:hover{
+  background-color:rgba(0,0,0,.2);
+}
+
+#practice td:nth-child(n+2){
+  text-align:right;
+}
+
+#practice ol{
+  list-style-type: lower-roman;
+}
+
+#practice ul ul{
+  list-style-type: square;
+  color:red;
+}
+
+#practice dl{
+margin:10px auto;
+text-align:center;
+}
+#practice dt{
+font-weight:bold;
+}
+#practice dd{
+margin:0px;
+}
+
+dd + dt{
+  margin-top:10px;
+}
+
+#practice blockquote{
+  border: 4px double #c0c0c0;
+  padding:20px 40px;
+  margin:40px 80px;
+  border-radius:30px 0;
+  background-color: #3b638b;
+  color:#fff;
+  text-shadow:1px 1px #000;
+}
+
+#practice blockquote cite{
+  display:block;
+  text-align:right;
+  margin-top:10px;
+  font-size:.8rem;
+  color:black;
+}
+
 
 
 /* --------- Media Queries ----------- */
