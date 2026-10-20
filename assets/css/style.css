@@ -80,23 +80,6 @@ nav ul {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }*/
 
-.button {
-  display: block;
-  color: navy;
-  text-decoration: none;
-  margin: 4px;
-  border: rgba(255, 255, 255, 0.1) 3px solid;
-  border-radius: 8px;
-  background:rgba(255, 255, 255, 0.1)
-}
-
-.button:hover{
-  background: rgba(255, 255, 255, 0.3);
-  text-decoration: underline;
-  text-decoration-color: navy;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-}
-
 
 /* Media Queries*/
 @media screen and not (min-height: 256px) {
