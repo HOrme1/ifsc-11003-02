@@ -14,3 +14,16 @@
   text-decoration-color: navy;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
+
+.img-right {
+  float: right;
+}
+
+.img-left {
+  float: left;
+}
+
+.img-center {
+  display: block;
+  margin: 20px auto;
+}

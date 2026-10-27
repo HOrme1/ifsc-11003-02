@@ -27,13 +27,23 @@
     #wrapper {
       background-color: #FFF;
       border: 1px solid #c0c0c0;
-      width: 800px;
+      width: 802px;
       margin-right: auto;
       margin-left: auto;
       text-shadow: 2px 2px #000;
     }
+
+    .tile {
+      width: 160px;
+      height: 150px;
+      margin: 20px;
+      float: left;
+    }
+    
+
     #navy {
       background-color: #001f3f;
+
     }
     #teal {
       background-color: #39CCCC;
@@ -46,6 +56,8 @@
     }
     #footer {
       background-color: #666;
+      margin: 20px;
+      clear: both;
     }
     h1 {
       color: #000;
@@ -57,10 +69,10 @@
 <body>
   <h1>Exercise</h1>
   <section id="wrapper">
-    <div id="navy">Navy</div>
-    <div id="teal">Teal</div>
-    <div id="blue">Blue</div>
-    <div id="aqua">Aqua</div>
+    <div class="tile" id="navy">Navy</div>
+    <div class="tile" id="teal">Teal</div>
+    <div class="tile" id="blue">Blue</div>
+    <div class="tile" id="aqua">Aqua</div>
     <div id="footer">Footer</div>
   </section>
 </body>
