@@ -43,10 +43,10 @@ async function initStarshipTimer() {
     const sampleTarget = new Date(Date.now() + (17 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (57 * 60 * 1000) + (37 * 1000));
 
     if (titleDisplay) {
-      titleDisplay.textContent = 'Countdown to Next Launch (Sample Starship Mission)';
+      titleDisplay.textContent = 'Next Launch: Sample Starship Mission';
     }
 
-    startCountdown(sampleTarget, 'Countdown to Next Launch (Sample Starship Mission)', true);
+    startCountdown(sampleTarget, 'Next Launch: Sample Starship Mission', true);
     return;
   }
 
@@ -68,7 +68,7 @@ async function initStarshipTimer() {
 
       if (targetTime > new Date()) {
         isCountdown = true;
-        if (titleDisplay) titleDisplay.textContent = `Countdown to Next Launch (${nextLaunch.name})`;
+        if (titleDisplay) titleDisplay.textContent = `Next Launch: ${nextLaunch.name}`;
       }
     }
 
@@ -95,7 +95,7 @@ async function initStarshipTimer() {
   } catch (error) {
     console.warn('Falling back to sample launch data because the live API could not be reached:', error);
     const sampleTarget = new Date(Date.now() + (17 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (57 * 60 * 1000) + (37 * 1000));
-    startCountdown(sampleTarget, 'Countdown to Next Launch (Sample Starship Mission)', true);
+    startCountdown(sampleTarget, 'Next Launch: Sample Starship Mission', true);
   }
 }
 
