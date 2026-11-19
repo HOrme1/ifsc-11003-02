@@ -100,3 +100,61 @@ async function initStarshipTimer() {
 }
 
 initStarshipTimer();
+
+const launchToTop = document.querySelector('.launch-to-top');
+
+if (launchToTop) {
+  let previousScrollY = window.scrollY;
+
+  const updateLaunchButton = () => {
+    const scrollY = window.scrollY;
+    const isLaunched = launchToTop.classList.contains('is-launched');
+
+    if (isLaunched && scrollY > previousScrollY) {
+      launchToTop.classList.remove('is-launched');
+    }
+
+    const isAnimating = launchToTop.classList.contains('is-launching')
+      || launchToTop.classList.contains('is-departing');
+    launchToTop.classList.toggle('is-visible', scrollY > 300 || isAnimating);
+    previousScrollY = scrollY;
+  };
+
+  window.addEventListener('scroll', updateLaunchButton, { passive: true });
+  updateLaunchButton();
+
+  launchToTop.addEventListener('click', () => {
+    if (launchToTop.classList.contains('is-launching') || launchToTop.classList.contains('is-departing')) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      return;
+    }
+
+    launchToTop.classList.add('is-launching');
+
+    const launchAtTop = () => {
+      if (window.scrollY > 0) {
+        return;
+      }
+
+      window.removeEventListener('scroll', launchAtTop);
+      launchToTop.classList.remove('is-launching');
+      launchToTop.classList.add('is-departing');
+
+      window.setTimeout(() => {
+        launchToTop.classList.remove('is-departing');
+        launchToTop.classList.add('is-launched');
+        updateLaunchButton();
+      }, 900);
+    };
+
+    window.addEventListener('scroll', launchAtTop, { passive: true });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    launchAtTop();
+  });
+}

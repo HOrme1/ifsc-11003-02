@@ -1,0 +1,165 @@
+.site-footer {
+  min-height: 140px;
+  padding: 32px;
+  border-top: 3px solid #ffffff;
+  background: #131313;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 6px 0 0;
+}
+
+.launch-to-top {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  bottom: 0;
+  z-index: 1000;
+  width: 180px;
+  height: 230px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.8));
+}
+
+.launch-to-top.is-visible {
+  opacity: 1;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.launch-to-top:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 6px;
+}
+
+.launch-scene {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 180px;
+  height: 205px;
+  transform: translateX(-50%);
+}
+
+.mechazilla-image,
+.starship-image {
+  position: absolute;
+  image-rendering: pixelated;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mechazilla-image {
+  left: 50%;
+  bottom: -59px;
+  width: 164px;
+  height: 205px;
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: opacity 180ms ease;
+}
+
+.launch-starship {
+  position: absolute;
+  left: 50%;
+  bottom: -13px;
+  width: 126px;
+  height: 126px;
+  transform: translateX(-50%);
+  transition: transform 500ms cubic-bezier(.2, .7, .2, 1);
+  z-index: 2;
+}
+
+.starship-image {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 126px;
+  height: 126px;
+  object-fit: contain;
+  transform: translateX(-50%);
+}
+
+.engine-flame {
+  position: absolute;
+  left: calc(50% - 11px);
+  bottom: 13px;
+  width: 12px;
+  height: 14px;
+  background: #ffffff;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  opacity: 0;
+}
+
+.launch-label {
+  position: absolute;
+  left: calc(50% + 34px);
+  bottom: 0;
+  width: auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.launch-to-top.is-launching .mechazilla-image,
+.launch-to-top.is-departing .mechazilla-image,
+.launch-to-top.is-launched .mechazilla-image {
+  opacity: 0;
+}
+
+.launch-to-top.is-launching .launch-starship {
+  transform: translate(-50%, -180px);
+}
+
+.launch-to-top.is-departing .launch-starship,
+.launch-to-top.is-launched .launch-starship {
+  transform: translate(-50%, -100vh);
+}
+
+.launch-to-top.is-launching .engine-flame,
+.launch-to-top.is-departing .engine-flame {
+  opacity: 1;
+  animation: enginePulse 150ms alternate infinite;
+}
+
+@keyframes enginePulse {
+  to { height: 16px; }
+}
+
+@media (max-width: 960px) {
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .launch-to-top {
+    left: 50%;
+    right: auto;
+    bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-to-top,
+  .mechazilla-image,
+  .launch-starship,
+  .engine-flame {
+    transition: none;
+    animation: none;
+  }
+}

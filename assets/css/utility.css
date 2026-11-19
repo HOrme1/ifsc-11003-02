@@ -27,3 +27,43 @@
   display: block;
   margin: 20px auto;
 }
+
+.border-thick-bottom {
+  border-bottom: 3px solid #ffffff;
+}
+
+.border-thick-top {
+  border-top: 3px solid #ffffff;
+}
+
+.border-thick-left {
+  border-left: 3px solid #ffffff;
+}
+
+.border-thick-right {
+  border-right: 3px solid #ffffff;
+}
+
+.border-thick-all {
+  border: 3px solid #ffffff;
+}
+
+.border-thin-bottom {
+  border-bottom: 1px solid #ffffff;
+}
+
+.border-thin-top {
+  border-top: 1px solid #ffffff;
+}
+
+.border-thin-left {
+  border-left: 1px solid #ffffff;
+}
+
+.border-thin-right {
+  border-right: 1px solid #ffffff;
+}
+
+.border-thin-all {
+  border: 1px solid #ffffff;
+}

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="top">
     <nav class="primary">
         <div class="nav-brand">
             <h1>CS 11003 Final Project by Hadden Orme</h1>
@@ -38,7 +38,6 @@
     
     <div class="starship-stats">
         <h1>Starship Stats</h1>
-
         <section class="stats-cell">
             <h2>Starship</h2>
             <table>
@@ -76,6 +75,8 @@
                 </tbody>
             </table>
         </section>
+
+        <div class="stats-divider" aria-hidden="true"></div>
 
         <section class="stats-cell">
             <h2>Raptor</h2>
@@ -116,6 +117,27 @@
         </section>
     </div>
     </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>Starship Project</strong>
+            <p>Built for CS 11003 Final Project</p>
+            <p>&copy; 2026 Hadden Orme. All rights reserved.</p>
+        </div>
+        <p>Not affiliated with SpaceX or any organization.</p>
+    </footer>
+
+    <button class="launch-to-top" type="button" aria-label="Launch back to top">
+        <span class="launch-scene" aria-hidden="true">
+            <img class="mechazilla-image" src="assets/img/mechazilla.png" alt="" />
+            <span class="launch-starship">
+                <img class="starship-image" src="assets/img/starship.png" alt="" />
+                <span class="engine-flame"></span>
+            </span>
+        </span>
+        <span class="launch-label">Top</span>
+    </button>
+
     <script src="assets/js/code.js"></script>
 </body>
 </html>

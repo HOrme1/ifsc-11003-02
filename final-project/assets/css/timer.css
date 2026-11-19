@@ -1,0 +1,47 @@
+.timer-card {
+  background-color: #262627;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  margin: 24px auto;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: "Science Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "CTRS" 0;
+}
+
+nav.primary .timer-card {
+  grid-column: 2;
+  width: 370px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px 16px;
+}
+
+#timer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+#timer-display {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.timer-card:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
