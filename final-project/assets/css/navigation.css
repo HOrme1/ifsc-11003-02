@@ -81,13 +81,8 @@ nav.primary ul li a:hover::after {
   }
 
   nav.primary .nav-brand,
-  nav.primary .timer-card,
   nav.primary ul {
     grid-column: 1;
-  }
-
-  nav.primary .timer-card {
-    margin-inline: auto;
   }
 
   nav.primary ul {

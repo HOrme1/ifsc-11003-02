@@ -17,7 +17,6 @@
 .launch-to-top {
   position: fixed;
   left: 50%;
-  right: auto;
   bottom: 0;
   z-index: 1000;
   width: 180px;
@@ -30,13 +29,12 @@
   opacity: 0;
   transform: translateX(-50%);
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: opacity 180ms ease;
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.8));
 }
 
 .launch-to-top.is-visible {
   opacity: 1;
-  transform: translateX(-50%);
   pointer-events: auto;
 }
 
@@ -46,99 +44,326 @@
 }
 
 .launch-scene {
+  --px: calc(126px / 128);
+  --tower-px: calc(164px / 128);
+  --ground: calc(-38.5px + 42 * var(--tower-px));
+  --tower-lift: calc(12 * var(--tower-px));
   position: absolute;
   left: 50%;
   bottom: 0;
   width: 180px;
   height: 205px;
   transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.launch-pad,
+.launch-ground,
+.pad-effects {
+  position: absolute;
+  inset: 0;
+  transform: translateY(var(--pad-drop, 0px));
+}
+
+.launch-pad {
+  z-index: 1;
+}
+
+.launch-ground {
+  top: auto;
+  height: var(--ground);
+  z-index: 3;
+  background:
+    linear-gradient(to bottom, #9c9c96 0 var(--tower-px), transparent var(--tower-px)),
+    repeating-linear-gradient(to right, transparent 0 calc(11 * var(--tower-px)), rgba(0, 0, 0, 0.18) calc(11 * var(--tower-px)) calc(12 * var(--tower-px))),
+    linear-gradient(to bottom, #75756f, #5f5f5a);
+}
+
+.pad-effects {
+  z-index: 4;
 }
 
 .mechazilla-image,
-.starship-image {
+.mechazilla-extender,
+.starship-image,
+.deluge-mount {
   position: absolute;
   image-rendering: pixelated;
   object-fit: contain;
   user-select: none;
-  pointer-events: none;
+}
+
+.deluge-mount {
+  left: calc((180px - 126px) / 2 + 59.5 * var(--px) - 8 * var(--tower-px));
+  bottom: var(--ground);
+  width: calc(16 * var(--tower-px));
+  height: calc(16 * var(--tower-px));
+  z-index: 1;
 }
 
 .mechazilla-image {
   left: 50%;
-  bottom: -59px;
+  bottom: calc(-59px + var(--tower-lift));
   width: 164px;
   height: 205px;
   transform: translateX(-50%);
   z-index: 1;
-  transition: opacity 180ms ease;
 }
 
-.launch-starship {
+.mechazilla-extender {
+  left: 50%;
+  bottom: var(--ground);
+  width: 164px;
+  height: var(--tower-lift);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.mechazilla-arms {
+  z-index: 2;
+}
+
+.launch-vehicle {
   position: absolute;
   left: 50%;
-  bottom: -13px;
+  bottom: calc(var(--ground) + 6 * var(--tower-px) - 27 * var(--px));
   width: 126px;
   height: 126px;
   transform: translateX(-50%);
-  transition: transform 500ms cubic-bezier(.2, .7, .2, 1);
   z-index: 2;
 }
 
 .starship-image {
-  position: absolute;
   left: 50%;
   bottom: 0;
   width: 126px;
   height: 126px;
-  object-fit: contain;
   transform: translateX(-50%);
 }
 
+.launch-starship,
+.landing-booster {
+  --engine-row: 100.5;
+}
+
+.landing-booster {
+  transform-origin: calc(59.5 * var(--px)) calc(80 * var(--px));
+}
+
+.landing-ship {
+  --engine-row: 58.5;
+  transform-origin: calc(59.5 * var(--px)) calc(42 * var(--px));
+}
+
+.landing-booster,
+.landing-ship,
+.launch-to-top.is-launched .launch-starship,
+.launch-to-top.is-landing .launch-starship {
+  visibility: hidden;
+}
+
+.launch-to-top.is-landing .landing-booster,
+.launch-to-top.is-landing .landing-ship {
+  visibility: visible;
+}
+
 .engine-flame {
+  --flame-width: 18px;
+  --flame-length: 60px;
   position: absolute;
-  left: calc(50% - 11px);
-  bottom: 13px;
-  width: 12px;
-  height: 14px;
-  background: #ffffff;
-  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  left: calc(59.5 * var(--px) - var(--flame-width) / 2);
+  top: calc(var(--engine-row) * var(--px));
+  width: var(--flame-width);
+  height: var(--flame-length);
+  transform-origin: 50% 0;
+  transform: scale(0);
   opacity: 0;
+  display: none;
 }
 
-.launch-label {
+.launch-to-top.is-departing .engine-flame,
+.launch-to-top.is-landing .engine-flame {
+  display: block;
+}
+
+.flame-glow,
+.flame-plume,
+.flame-core {
   position: absolute;
-  left: calc(50% + 34px);
-  bottom: 0;
-  width: auto;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  white-space: nowrap;
+  left: 50%;
+  top: 0;
+  transform-origin: 50% 0;
 }
 
-.launch-to-top.is-launching .mechazilla-image,
-.launch-to-top.is-departing .mechazilla-image,
-.launch-to-top.is-launched .mechazilla-image {
+.flame-glow {
+  top: -40%;
+  width: 360%;
+  height: 140%;
+  margin-left: -180%;
+  background: radial-gradient(closest-side, rgba(255, 178, 102, 0.5), rgba(255, 110, 70, 0.18) 55%, transparent);
+  animation: flameGlow 170ms ease-in-out infinite alternate;
+}
+
+.flame-plume {
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  background: radial-gradient(ellipse 50% 100% at 50% 0,
+      #fffdf3 0%,
+      #ffe9a6 12%,
+      #ffbd59 28%,
+      #ff8a3d 46%,
+      rgba(255, 76, 112, 0.65) 68%,
+      rgba(160, 82, 255, 0.25) 86%,
+      transparent 100%);
+  animation: flamePlume 260ms linear infinite;
+}
+
+.flame-core {
+  width: 42%;
+  height: 66%;
+  margin-left: -21%;
+  border-radius: 50% 50% 50% 50% / 12% 12% 88% 88%;
+  background:
+    radial-gradient(ellipse 50% 42% at 50% 50%, #ffffff 0 38%, rgba(255, 244, 214, 0) 78%) 0 1px / 100% 8px repeat-y,
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 233, 180, 0.45) 55%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent);
+  animation: flameCore 90ms ease-in-out infinite alternate;
+}
+
+@keyframes flamePlume {
+  0%   { transform: scale(1, 1) skewX(0deg); }
+  25%  { transform: scale(0.94, 1.09) skewX(2deg); }
+  50%  { transform: scale(1.05, 0.93) skewX(-1deg); }
+  75%  { transform: scale(0.97, 1.06) skewX(-2.5deg); }
+  100% { transform: scale(1, 1) skewX(0deg); }
+}
+
+@keyframes flameCore {
+  from { opacity: 0.8; transform: scaleY(0.95); }
+  to   { opacity: 1; transform: scaleY(1.05); }
+}
+
+@keyframes flameGlow {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+.reentry-glow {
+  position: absolute;
+  left: calc(44 * var(--px));
+  top: calc(21 * var(--px));
+  width: calc(76 * var(--px));
+  height: calc(42 * var(--px));
+  background:
+    radial-gradient(ellipse 18% 48% at 16% 50%, rgba(255, 248, 232, 0.95), rgba(255, 158, 96, 0.8) 40%, rgba(255, 72, 140, 0.4) 72%, transparent),
+    radial-gradient(ellipse 70% 34% at 30% 50%, rgba(255, 110, 150, 0.4), transparent);
+  filter: blur(1.5px);
+  transform-origin: 16% 50%;
   opacity: 0;
+  display: none;
 }
 
-.launch-to-top.is-launching .launch-starship {
-  transform: translate(-50%, -180px);
+.launch-to-top.is-landing .reentry-glow {
+  display: block;
+  animation: plasmaFlicker 120ms ease-in-out infinite alternate;
 }
 
-.launch-to-top.is-departing .launch-starship,
-.launch-to-top.is-launched .launch-starship {
-  transform: translate(-50%, -100vh);
+@keyframes plasmaFlicker {
+  from { transform: scale(0.95, 0.93); }
+  to   { transform: scale(1.05, 1.04); }
 }
 
-.launch-to-top.is-launching .engine-flame,
-.launch-to-top.is-departing .engine-flame {
+.exhaust-puff {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(248, 248, 248, 0.95), rgba(220, 220, 226, 0.6) 64%, rgba(200, 200, 205, 0));
+}
+
+.exhaust-puff.is-hot {
+  background: radial-gradient(closest-side, rgba(255, 218, 168, 0.95), rgba(255, 140, 80, 0.5) 60%, rgba(255, 120, 60, 0));
+}
+
+.exhaust-puff.is-water {
+  background: radial-gradient(closest-side, rgba(228, 242, 255, 0.85), rgba(186, 216, 242, 0.45) 64%, rgba(170, 205, 235, 0));
+}
+
+.water-drop {
+  position: absolute;
+  width: 2px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e2f3ff;
+  box-shadow: 0 0 2px rgba(190, 225, 255, 0.9);
+}
+
+.cloud-deck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 900ms ease, visibility 0s linear 900ms;
+}
+
+.launch-sky.is-active .cloud-deck {
   opacity: 1;
-  animation: enginePulse 150ms alternate infinite;
+  visibility: visible;
+  transition: opacity 900ms ease;
 }
 
-@keyframes enginePulse {
-  to { height: 16px; }
+.cloud-deck-back {
+  z-index: 999;
+}
+
+.cloud-deck-front {
+  z-index: 1001;
+}
+
+.cloud-puff,
+.cloud-wisp {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cloud-puff {
+  --cloud-tone: 124, 133, 150;
+  will-change: transform;
+  background: radial-gradient(closest-side, rgba(var(--cloud-tone), 0.95), rgba(var(--cloud-tone), 0.82) 45%, rgba(var(--cloud-tone), 0.35) 75%, rgba(var(--cloud-tone), 0));
+}
+
+.cloud-puff.is-light {
+  --cloud-tone: 182, 190, 204;
+}
+
+.cloud-puff.is-dark {
+  --cloud-tone: 96, 104, 121;
+}
+
+.cloud-wisp {
+  background: radial-gradient(closest-side, rgba(170, 178, 193, 0.8), rgba(140, 148, 165, 0.3) 60%, transparent);
+}
+
+.cloud-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  width: 360px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 170, 92, 0.85), rgba(255, 112, 70, 0.32) 55%, transparent);
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cloud-glow.is-plasma {
+  background: radial-gradient(closest-side, rgba(255, 150, 196, 0.85), rgba(196, 96, 255, 0.3) 55%, transparent);
 }
 
 @media (max-width: 960px) {
@@ -146,19 +371,15 @@
     align-items: flex-start;
     flex-direction: column;
   }
-
-  .launch-to-top {
-    left: 50%;
-    right: auto;
-    bottom: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .launch-to-top,
-  .mechazilla-image,
-  .launch-starship,
-  .engine-flame {
+  .flame-glow,
+  .flame-plume,
+  .flame-core,
+  .reentry-glow,
+  .cloud-deck {
     transition: none;
     animation: none;
   }

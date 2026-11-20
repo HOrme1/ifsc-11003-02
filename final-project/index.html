@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="../../assets/css/utility.css" rel="stylesheet" />
     <title>Final Project for CS 11003 Fall 2026 Semester</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/utility.css" rel="stylesheet" />
 </head>
 <body id="top">
     <nav class="primary">
@@ -17,9 +17,9 @@
             <p>Not affiliated with SpaceX or any organization; made exclusively for educational purposes.</p>
         </div>
         <section id="launch-timer-section" class="timer-card">
-        <h3 id="timer-title">Starship Mission Clock</h3>
-        <div id="timer-display" aria-live="polite">Loading timer...</div>
-</section>
+            <h3 id="timer-title">Starship Mission Clock</h3>
+            <div id="timer-display" aria-live="polite">Loading timer...</div>
+        </section>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -32,90 +32,91 @@
             <h1>Starship</h1>
             <p>Per aspera ad astra</p>
         </div>
-    <h1>SpaceX Twitter Feed</h1>
-    <a class="twitter-timeline" href="https://x.com/SpaceX?ref_src=twsrc%5Etfw">Posts by SpaceX</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-    
-    
-    <div class="starship-stats">
-        <h1>Starship Stats</h1>
-        <section class="stats-cell">
-            <h2>Starship</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Specification</th>
-                        <th scope="col">Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="row">Height</th><td>Approximately 123 m / 403 ft</td></tr>
-                    <tr><th scope="row">Diameter</th><td>9 m / 30 ft</td></tr>
-                    <tr><th scope="row">Payload to LEO</th><td>100+ metric tons</td></tr>
-                    <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
-                    <tr><th scope="row">Mission</th><td>Fully reusable transportation</td></tr>
-                </tbody>
-            </table>
-        </section>
 
-        <section class="stats-cell">
-            <h2>Super Heavy</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Specification</th>
-                        <th scope="col">Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="row">Height</th><td>Approximately 71 m / 233 ft</td></tr>
-                    <tr><th scope="row">Diameter</th><td>9 m / 30 ft</td></tr>
-                    <tr><th scope="row">Engines</th><td>33 Raptor engines</td></tr>
-                    <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
-                    <tr><th scope="row">Mission</th><td>First-stage boost</td></tr>
-                </tbody>
-            </table>
-        </section>
+        <h1>SpaceX Twitter Feed</h1>
+        <a class="twitter-timeline" href="https://x.com/SpaceX?ref_src=twsrc%5Etfw">Posts by SpaceX</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-        <div class="stats-divider" aria-hidden="true"></div>
+        <div class="starship-stats">
+            <h1>Starship Stats</h1>
+            <section class="stats-cell">
+                <h2>Starship</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Specification</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Height</th><td>Approximately 123 m / 403 ft</td></tr>
+                        <tr><th scope="row">Diameter</th><td>9 m / 30 ft</td></tr>
+                        <tr><th scope="row">Payload to LEO</th><td>100+ metric tons</td></tr>
+                        <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
+                        <tr><th scope="row">Mission</th><td>Fully reusable transportation</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-        <section class="stats-cell">
-            <h2>Raptor</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Specification</th>
-                        <th scope="col">Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="row">Engine Type</th><td>Full-flow staged-combustion</td></tr>
-                    <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
-                    <tr><th scope="row">Thrust</th><td>Approximately 230 tf / 500,000 lbf</td></tr>
-                    <tr><th scope="row">Cycle</th><td>Full-flow staged combustion</td></tr>
-                    <tr><th scope="row">Variants</th><td>Sea level and vacuum</td></tr>
-                </tbody>
-            </table>
-        </section>
+            <section class="stats-cell">
+                <h2>Super Heavy</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Specification</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Height</th><td>Approximately 71 m / 233 ft</td></tr>
+                        <tr><th scope="row">Diameter</th><td>9 m / 30 ft</td></tr>
+                        <tr><th scope="row">Engines</th><td>33 Raptor engines</td></tr>
+                        <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
+                        <tr><th scope="row">Mission</th><td>First-stage boost</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-        <section class="stats-cell">
-            <h2>Mechazilla</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Specification</th>
-                        <th scope="col">Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="row">Official Name</th><td>Launch and Catch Tower</td></tr>
-                    <tr><th scope="row">Height</th><td>Approximately 146 m / 480 ft</td></tr>
-                    <tr><th scope="row">Chopsticks</th><td>Pair of movable arms</td></tr>
-                    <tr><th scope="row">Purpose</th><td>Catch and stack Starship vehicles</td></tr>
-                    <tr><th scope="row">Location</th><td>Starbase, Texas</td></tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
+            <div class="stats-divider" aria-hidden="true"></div>
+
+            <section class="stats-cell">
+                <h2>Raptor</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Specification</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Engine Type</th><td>Full-flow staged-combustion</td></tr>
+                        <tr><th scope="row">Propellant</th><td>Liquid methane and liquid oxygen</td></tr>
+                        <tr><th scope="row">Thrust</th><td>Approximately 230 tf / 500,000 lbf</td></tr>
+                        <tr><th scope="row">Cycle</th><td>Full-flow staged combustion</td></tr>
+                        <tr><th scope="row">Variants</th><td>Sea level and vacuum</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="stats-cell">
+                <h2>Mechazilla</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Specification</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Official Name</th><td>Launch and Catch Tower</td></tr>
+                        <tr><th scope="row">Height</th><td>Approximately 146 m / 480 ft</td></tr>
+                        <tr><th scope="row">Chopsticks</th><td>Pair of movable arms</td></tr>
+                        <tr><th scope="row">Purpose</th><td>Catch and stack Starship vehicles</td></tr>
+                        <tr><th scope="row">Location</th><td>Starbase, Texas</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -129,14 +130,35 @@
 
     <button class="launch-to-top" type="button" aria-label="Launch back to top">
         <span class="launch-scene" aria-hidden="true">
-            <img class="mechazilla-image" src="assets/img/mechazilla.png" alt="" />
-            <span class="launch-starship">
-                <img class="starship-image" src="assets/img/starship.png" alt="" />
-                <span class="engine-flame"></span>
+            <span class="launch-pad">
+                <img class="mechazilla-image" src="assets/img/mechazilla-tower.png" alt="" />
+                <img class="mechazilla-extender" src="assets/img/mechazilla-extender.png" alt="" />
+                <img class="mechazilla-image mechazilla-arms" src="assets/img/mechazilla-arms.png" alt="" />
+                <img class="deluge-mount" src="assets/img/water-deluge-system-mount.png" alt="" />
             </span>
+            <span class="launch-vehicle launch-starship">
+                <span class="engine-flame"><span class="flame-glow"></span><span class="flame-plume"></span><span class="flame-core"></span></span>
+                <img class="starship-image" src="assets/img/starship-stacked.png" alt="" />
+            </span>
+            <span class="launch-vehicle landing-booster">
+                <span class="engine-flame"><span class="flame-glow"></span><span class="flame-plume"></span><span class="flame-core"></span></span>
+                <img class="starship-image" src="assets/img/superheavy.png" alt="" />
+            </span>
+            <span class="launch-vehicle landing-ship">
+                <span class="reentry-glow"></span>
+                <span class="engine-flame"><span class="flame-glow"></span><span class="flame-plume"></span><span class="flame-core"></span></span>
+                <img class="starship-image" src="assets/img/starship.png" alt="" />
+            </span>
+            <span class="launch-ground"></span>
+            <span class="pad-effects"></span>
         </span>
-        <span class="launch-label">Top</span>
     </button>
+
+    <div class="launch-sky" aria-hidden="true">
+        <div class="cloud-deck cloud-deck-back"></div>
+        <div class="cloud-deck cloud-deck-front"></div>
+        <div class="cloud-glow"></div>
+    </div>
 
     <script src="assets/js/code.js"></script>
 </body>
